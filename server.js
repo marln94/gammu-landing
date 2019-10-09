@@ -1,8 +1,11 @@
-const express = require("express");
-const app = express();
+var express = require("express");
+var http = require('http')
+var app = express();
 
 app.use(express.static('./public'));
 
-app.listen(3333, function () {
-    console.log("Servidor levantado");
+app.listen(process.env.PORT || 8001);
+
+http.createServer(app).listen(8001, () => {
+    console.log('Server started');
 });
